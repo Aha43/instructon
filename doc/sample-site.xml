@@ -1,0 +1,34 @@
+<site
+    title="Sample Site" 
+    primary-language="en"
+    content-directory="content"
+    output-directory="output"
+    template-directory="templates"
+    image-directory="images"
+    video-directory="videos">
+
+    <topics>
+        <topic>
+            <title>
+                <text lang="en">Introduction</text>
+                <text lang="no">Introduksjon</text>
+            </title>
+            <pages>
+                <page directory="introduction"/>
+            </pages>
+        </topic>
+        <topic>
+            <title>
+                <text lang="en">Getting Started</text>
+                <text lang="no">Kom i gang</text>
+            </title>
+            <pages>
+                <page page="intro/step-1"/>
+                <page page="intro/step-2"/>
+                <page page="intro/step-3"/>
+                <page page="intro/step-4"/>
+            </pages>
+        </topic>
+    </topics>
+    
+</site>
