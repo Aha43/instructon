@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEC001C3-978D-4DEB-AE7E-3CD8BBB6DF72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instructon.Engine", "src\Instructon.Engine\Instructon.Engine.csproj", "{27532739-26B3-4575-8866-04EED5AB5FD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instructon.Cli", "src\Instructon.Cli\Instructon.Cli.csproj", "{36E5E611-9248-4B69-9C86-A061F899F433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,19 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27532739-26B3-4575-8866-04EED5AB5FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27532739-26B3-4575-8866-04EED5AB5FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27532739-26B3-4575-8866-04EED5AB5FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27532739-26B3-4575-8866-04EED5AB5FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E5E611-9248-4B69-9C86-A061F899F433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E5E611-9248-4B69-9C86-A061F899F433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E5E611-9248-4B69-9C86-A061F899F433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E5E611-9248-4B69-9C86-A061F899F433}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27532739-26B3-4575-8866-04EED5AB5FD0} = {CEC001C3-978D-4DEB-AE7E-3CD8BBB6DF72}
+		{36E5E611-9248-4B69-9C86-A061F899F433} = {CEC001C3-978D-4DEB-AE7E-3CD8BBB6DF72}
 	EndGlobalSection
 EndGlobal
