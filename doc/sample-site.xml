@@ -23,10 +23,10 @@
                 <text lang="no">Kom i gang</text>
             </title>
             <pages>
-                <page page="intro/step-1"/>
-                <page page="intro/step-2"/>
-                <page page="intro/step-3"/>
-                <page page="intro/step-4"/>
+                <page path="intro/step-1"/>
+                <page path="intro/step-2"/>
+                <page path="intro/step-3"/>
+                <page path="intro/step-4"/>
             </pages>
         </topic>
     </topics>

@@ -1,0 +1,28 @@
+<page>
+    <title>
+        <text lang="en">Sample Page</text>
+        <text lang="no">Eksempel Side</text>
+    </title>
+    <par>
+        <text lang="en">
+            This is a sample page in English.
+        </text>
+        <text lang="no">
+            Dette er en eksempel side på norsk.
+        </text>
+    </par>
+    <image>
+        <file src="images/sample-image.jpg"/>
+        <alt lang="en">Sample Image</alt>
+        <alt lang="no">Eksempelbilde</alt>
+        <caption lang="en">This is a sample image.</caption>
+        <caption lang="no">Dette er et eksempelbilde.</caption>
+    </image>
+    <video>
+        <video src="videos/sample-video.mp4"/>
+        <alt lang="en">Sample Video</alt>
+        <alt lang="no">Eksempelvideo</alt>
+        <caption lang="en">This is a sample video.</caption>
+        <caption lang="no">Dette er en eksempelvideo.</caption>
+    </video>
+</page>
