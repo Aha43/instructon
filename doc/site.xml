@@ -3,7 +3,6 @@
     primary-language="en"
     content-directory="content"
     output-directory="output"
-    template-directory="templates"
     image-directory="images"
     video-directory="videos">
 

@@ -1,0 +1,1 @@
+dotnet run --project ../src/Instructon.Cli/Instructon.Cli.csproj
