@@ -7,16 +7,16 @@
     video-directory="videos">
 
     <topics>
-        <topic>
+        <topic path="introduction">
             <title>
                 <text lang="en">Introduction</text>
                 <text lang="no">Introduksjon</text>
             </title>
             <pages>
-                <page directory="introduction"/>
+                <page path="intro"/>
             </pages>
         </topic>
-        <topic>
+        <topic path="getting-started">
             <title>
                 <text lang="en">Getting Started</text>
                 <text lang="no">Kom i gang</text>

@@ -1,4 +1,6 @@
 using System;
+using Instructon.Engine.Actions;
+using Instructon.Engine.Interfaces;
 using Instructon.Engine.Xml;
 using Instructon.Engine.Xml.Elements.Site;
 
@@ -42,5 +44,46 @@ public class Instructon
     }
 
     public string GetSiteJson() => _siteConfig.ToPrettyString();
+
+    public string GetContentDirectory() => _siteConfig.ContentDirectory;
+
+    public bool DryActionRun { get; set; } = true;
+
+    public void ExecuteAllActions()
+    {
+        var actions = FindAllActionsFor();
+        foreach (var action in actions)
+        {
+            action.Execute(this);
+        }
+    }
+
+    private List<IInstructonAction> FindAllActionsFor()
+    {
+        var retVal = new List<IInstructonAction>();
+
+        return [.. retVal, .. FindActionsForCreatingTopicDir()];
+    }
+
+    private List<IInstructonAction> FindActionsForCreatingTopicDir()
+    {
+        var actions = new List<IInstructonAction>();
+        foreach (var topic in _siteConfig.Topics)
+        {
+            if (TopicDirExists(topic.Path))
+            {
+                continue; // Skip if the topic directory already exists
+            }
+            
+            actions.Add(new CreateTopicDirInstructonAction(topic.Path));
+        }
+        return actions;
+    }
+
+    private bool TopicDirExists(string topicPath)
+    {
+        var fullPath = Path.Combine(_siteConfig.ContentDirectory, topicPath);
+        return Directory.Exists(fullPath);
+    }
 
 }

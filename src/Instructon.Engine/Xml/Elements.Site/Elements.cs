@@ -33,9 +33,12 @@ public record Topic
     [XmlElement("title")]
     public Title Title { get; set; } = null!;
 
+    [XmlAttribute("path")]
+    public string Path { get; set; } = null!;
+
     [XmlArray("pages")]
     [XmlArrayItem("page")]
-    public List<PageRef> Pages { get; set; } = [];
+    public List<Page> Pages { get; set; } = [];
 }
 
 public record Title
@@ -58,11 +61,8 @@ public record LocalizedText
     public string Value { get; set; } = string.Empty;
 }
 
-public record PageRef
+public record Page
 {
     [XmlAttribute("path")]
     public string Path { get; set; } = null!;
-
-    [XmlAttribute("directory")]
-    public string Directory { get; set; } = string.Empty;
 }
