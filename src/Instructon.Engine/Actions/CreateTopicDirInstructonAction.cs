@@ -1,17 +1,15 @@
 using Instructon.Engine.Base;
+using Instructon.Engine.Xml.Elements.Site;
 
 namespace Instructon.Engine.Actions;
 
-public class CreateTopicDirInstructonAction(string topicDirectory) : AbstractInstructonAction("CreateContentDir", $"Creates content directory {topicDirectory}")
+public class CreateTopicDirInstructonAction(Topic topic)
+    : AbstractInstructonAction("CreateContentDir", $"Creates content directory {topic.Directory}")
 {
     protected override bool PerformAction(Instructon instructon)
     {
         var contentDir = instructon.GetContentDirectory();
-        var fullPath = Path.Combine(contentDir, topicDirectory);
-
-        Console.WriteLine($"topicDirectory = {topicDirectory}");
-        Console.WriteLine($"contentDir = {contentDir}");
-        Console.WriteLine($"fullPath = {fullPath}");
+        var fullPath = Path.Combine(contentDir, topic.Directory);
 
         if (Directory.Exists(fullPath))
         {

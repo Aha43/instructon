@@ -1,4 +1,3 @@
-using System;
 using Instructon.Engine.Actions;
 using Instructon.Engine.Interfaces;
 using Instructon.Engine.Xml;
@@ -43,9 +42,11 @@ public class Instructon
         }
     }
 
-    public string GetSiteJson() => _siteConfig.ToPrettyString();
+    public string GetSiteJson() => _siteConfig.ToJsonString();
 
     public string GetContentDirectory() => _siteConfig.ContentDirectory;
+
+    public List<string> GetLanguages() => _siteConfig.Languages;
 
     public bool DryActionRun { get; set; } = true;
 
@@ -62,7 +63,8 @@ public class Instructon
     {
         var retVal = new List<IInstructonAction>();
 
-        return [.. retVal, .. FindActionsForCreatingTopicDir()];
+        return [.. retVal, .. FindActionsForCreatingTopicDir() 
+            , .. FindActionsForCreatingPageFiles()];
     }
 
     private List<IInstructonAction> FindActionsForCreatingTopicDir()
@@ -70,20 +72,36 @@ public class Instructon
         var actions = new List<IInstructonAction>();
         foreach (var topic in _siteConfig.Topics)
         {
-            if (TopicDirExists(topic.Path))
-            {
-                continue; // Skip if the topic directory already exists
-            }
-            
-            actions.Add(new CreateTopicDirInstructonAction(topic.Path));
+            if (TopicExists(topic)) continue;
+            actions.Add(new CreateTopicDirInstructonAction(topic));
         }
         return actions;
     }
 
-    private bool TopicDirExists(string topicPath)
+    private List<IInstructonAction> FindActionsForCreatingPageFiles()
     {
-        var fullPath = Path.Combine(_siteConfig.ContentDirectory, topicPath);
-        return Directory.Exists(fullPath);
+        var actions = new List<IInstructonAction>();
+        foreach (var topic in _siteConfig.Topics)
+        {
+            foreach (var page in topic.Pages)
+            {
+                if (PageFileExists(page)) continue;
+                actions.Add(new CreatePageFileInstructonAction(page));
+            }
+        }
+        return actions;
     }
+
+    private bool PageFileExists(Page page)
+    {
+        if (!TopicExists(page.Topic!)) return false;
+
+        var fullPath = Path.Combine(GetFullPath(page.Topic!), page.Filename);
+        return File.Exists(fullPath);
+    }
+
+    private bool TopicExists(Topic topic) => Directory.Exists(GetFullPath(topic));
+
+    private string GetFullPath(Topic topic) => Path.Combine(GetContentDirectory(), topic.Directory);
 
 }

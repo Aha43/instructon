@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-16"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <todo>Scaffolded page. Complete required fields.</todo>
+  <title>
+    <text lang="en">
+      <todo>Set title</todo>Untitled Page</text>
+    <text lang="no">
+      <todo>Set title</todo>Untitled Page</text>
+  </title>
+  <par>
+    <todo>Write introduction paragraph</todo>
+    <text lang="en">
+      <todo>Write proper text in en</todo>TODO: Write content in en</text>
+    <text lang="no">
+      <todo>Write proper text in no</todo>TODO: Write content in no</text>
+  </par>
+  <image>
+    <todo>Add image file</todo>
+    <todo>Write alt/caption</todo>
+    <file src="images/placeholder.jpg" />
+    <alt lang="en">
+      <todo>Write proper text in en</todo>TODO: Write content in en</alt>
+    <alt lang="no">
+      <todo>Write proper text in no</todo>TODO: Write content in no</alt>
+    <caption lang="en">TODO: Add caption in en</caption>
+    <caption lang="no">TODO: Add caption in no</caption>
+  </image>
+  <video>
+    <todo>Add video file</todo>
+    <todo>Write alt/caption</todo>
+    <video src="videos/placeholder.mp4" />
+    <alt lang="en">
+      <todo>Write proper text in en</todo>TODO: Write content in en</alt>
+    <alt lang="no">
+      <todo>Write proper text in no</todo>TODO: Write content in no</alt>
+    <caption lang="en">TODO: Add caption in en</caption>
+    <caption lang="no">TODO: Add caption in no</caption>
+  </video>
+</page>

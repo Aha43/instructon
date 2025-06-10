@@ -1,17 +1,32 @@
 <page>
+    <todo>
+        Some notes on what need be done still on this page.
+    </todo>
     <title>
         <text lang="en">Sample Page</text>
         <text lang="no">Eksempel Side</text>
     </title>
     <par>
+        <todo>
+            Some notes on what need be done still in this paragraph.
+        </todo>
         <text lang="en">
             This is a sample page in English.
         </text>
         <text lang="no">
+            <todo>
+                Improve this text in Norwegian.
+            </todo>
             Dette er en eksempel side på norsk.
         </text>
     </par>
     <image>
+        <todo>
+            Replace this photo: Focus not good on this one.
+        </todo>
+        <todo>
+            Should be able to make it smaller.
+        </todo>
         <file src="images/sample-image.jpg"/>
         <alt lang="en">Sample Image</alt>
         <alt lang="no">Eksempelbilde</alt>
@@ -19,6 +34,12 @@
         <caption lang="no">Dette er et eksempelbilde.</caption>
     </image>
     <video>
+        <todo>
+            Replace this mp4: Should be able to make it shorter. Also beginning to dark.
+        </todo>
+        <todo>
+            Need to come up with better caption in all languages.
+        </todo>
         <video src="videos/sample-video.mp4"/>
         <alt lang="en">Sample Video</alt>
         <alt lang="no">Eksempelvideo</alt>

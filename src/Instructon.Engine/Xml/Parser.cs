@@ -14,7 +14,12 @@ public static class Parser
         return (T)serializer.Deserialize(reader)!;
     }
 
-    public static SiteConfig ParseSiteConfig(string xml) => Parse<SiteConfig>(xml);
+    public static SiteConfig ParseSiteConfig(string xml)
+    {
+        var siteConfig = Parse<SiteConfig>(xml);
+        SetPageParentTopic(siteConfig);
+        return siteConfig;
+    }
 
     public static SiteConfig ParseSiteConfigFromFile(string filePath)
     {
@@ -26,6 +31,14 @@ public static class Parser
 
         var xml = File.ReadAllText(filePath);
         return ParseSiteConfig(xml);
+    }
+
+    private static void SetPageParentTopic(SiteConfig siteConfig)
+    {
+        foreach (var topic in siteConfig.Topics)
+        {
+            foreach (var page in topic.Pages) page.Topic = topic;
+        }
     }
     
 }

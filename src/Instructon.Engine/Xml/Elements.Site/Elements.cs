@@ -11,6 +11,9 @@ public record SiteConfig
     [XmlAttribute("primary-language")]
     public string PrimaryLanguage { get; set; } = "en";
 
+    [XmlAttribute("languages")]
+    public List<string> Languages { get; set; } = ["en", "no"];
+
     [XmlAttribute("content-directory")]
     public string ContentDirectory { get; set; } = null!;
 
@@ -33,8 +36,8 @@ public record Topic
     [XmlElement("title")]
     public Title Title { get; set; } = null!;
 
-    [XmlAttribute("path")]
-    public string Path { get; set; } = null!;
+    [XmlAttribute("directory")]
+    public string Directory { get; set; } = null!;
 
     [XmlArray("pages")]
     [XmlArrayItem("page")]
@@ -63,6 +66,9 @@ public record LocalizedText
 
 public record Page
 {
-    [XmlAttribute("path")]
-    public string Path { get; set; } = null!;
+    [XmlAttribute("filename")]
+    public string Filename { get; set; } = null!;
+
+    [XmlIgnore]
+    public Topic? Topic { get; set; }
 }

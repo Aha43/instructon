@@ -12,7 +12,7 @@ if (!File.Exists(siteFile))
 
 var instructon = Instructon.Engine.Instructon.CreateFromFile(siteFile);
 
-System.Console.WriteLine(instructon.GetSiteJson());   
+//System.Console.WriteLine(instructon.GetSiteJson());   
 
 instructon.DryActionRun = false; // Set to false to actually perform actions
 instructon.ExecuteAllActions();
