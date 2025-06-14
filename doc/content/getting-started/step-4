@@ -14,26 +14,38 @@
     <text lang="no">
       <todo>Write proper text in no</todo>TODO: Write content in no</text>
   </par>
-  <image>
+  <img>
     <todo>Add image file</todo>
     <todo>Write alt/caption</todo>
-    <file src="images/placeholder.jpg" />
-    <alt lang="en">
-      <todo>Write proper text in en</todo>TODO: Write content in en</alt>
-    <alt lang="no">
-      <todo>Write proper text in no</todo>TODO: Write content in no</alt>
-    <caption lang="en">TODO: Add caption in en</caption>
-    <caption lang="no">TODO: Add caption in no</caption>
-  </image>
-  <video>
+    <file>images/placeholder.jpg</file>
+    <alt>
+      <todo>Write alt text</todo>
+      <alt lang="en">
+        <todo>Write proper text in en</todo>TODO: Write content in en</alt>
+      <alt lang="no">
+        <todo>Write proper text in no</todo>TODO: Write content in no</alt>
+    </alt>
+    <caption>
+      <todo>Write caption</todo>
+      <caption lang="en">TODO: Add caption in en</caption>
+      <caption lang="no">TODO: Add caption in no</caption>
+    </caption>
+  </img>
+  <movie>
     <todo>Add video file</todo>
     <todo>Write alt/caption</todo>
-    <video src="videos/placeholder.mp4" />
-    <alt lang="en">
-      <todo>Write proper text in en</todo>TODO: Write content in en</alt>
-    <alt lang="no">
-      <todo>Write proper text in no</todo>TODO: Write content in no</alt>
-    <caption lang="en">TODO: Add caption in en</caption>
-    <caption lang="no">TODO: Add caption in no</caption>
-  </video>
+    <file>videos/placeholder.mp4</file>
+    <alt>
+      <todo>Write alt text</todo>
+      <alt lang="en">
+        <todo>Write proper text in en</todo>TODO: Write content in en</alt>
+      <alt lang="no">
+        <todo>Write proper text in no</todo>TODO: Write content in no</alt>
+    </alt>
+    <caption>
+      <todo>Write caption</todo>
+      <caption lang="en">TODO: Add caption in en</caption>
+      <caption lang="no">TODO: Add caption in no</caption>
+    </caption>
+  </movie>
 </page>
