@@ -9,16 +9,27 @@ public class CreatePageFileInstructonAction(Page page) : AbstractInstructonActio
 {
     protected override bool PerformAction(Instructon instructon)
     {
-        var contentDir = instructon.GetContentDirectory();
-        var topicDir = Path.Combine(contentDir, page.Topic!.Directory);
-        var fullPath = Path.Combine(topicDir, page.Filename);
+        try
+        {
+            var contentDir = instructon.GetContentDirectory();
+            var topicDir = Path.Combine(contentDir, page.Topic!.Directory);
+            var fullPath = Path.Combine(topicDir, page.Filename);
 
-        var initialPage = PageScaffoldFactory.CreateScaffold(instructon.GetLanguages());
-        var xmlContent = initialPage.ToXmlString();
+            var initialPage = PageScaffoldFactory.CreateScaffold(instructon.GetLanguages());
+            var xmlContent = initialPage.ToXmlString();
 
-        File.WriteAllText(fullPath, xmlContent);
+            File.WriteAllText(fullPath, xmlContent);
 
-        return true;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            if (ex.InnerException != null)
+                Console.WriteLine("Inner: " + ex.InnerException);
+            throw;
+        }
+
     }
-    
+
 }

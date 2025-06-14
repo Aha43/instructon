@@ -11,17 +11,15 @@ public class PageDocument
     [XmlElement("title")]
     public LocalizedBlock? Title { get; set; }
 
-    [XmlElement("par")]
-    public Paragraph? Paragraph { get; set; }
-
-    [XmlElement("image")]
-    public MediaBlock? Image { get; set; }
-
-    [XmlElement("video")]
-    public MediaBlock? Video { get; set; }
+    [XmlElement("par", typeof(Paragraph))]
+    [XmlElement("img", typeof(Img))]
+    [XmlElement("movie", typeof(Movie))]
+    public List<PageContent> Content { get; set; } = [];
 }
 
-public class Paragraph
+public abstract class PageContent { }
+
+public class Paragraph : PageContent
 {
     [XmlElement("todo")]
     public List<string> Todos { get; set; } = [];
@@ -30,28 +28,55 @@ public class Paragraph
     public List<LocalizedText> Texts { get; set; } = [];
 }
 
-public class MediaBlock
+public class Caption
+{
+    [XmlElement("todo")]
+    public List<string> Todos { get; set; } = [];
+
+    [XmlElement("caption")]
+    public List<LocalizedText> Captions { get; set; } = [];
+
+    [XmlElement("text")]
+    public List<LocalizedText> Texts { get; set; } = [];
+}
+
+public class AltText
+{
+    [XmlElement("todo")]
+    public List<string> Todos { get; set; } = [];
+
+    [XmlElement("alt")]
+    public List<LocalizedText> Alts { get; set; } = [];
+}
+
+public class Img : PageContent
 {
     [XmlElement("todo")]
     public List<string> Todos { get; set; } = [];
 
     [XmlElement("file")]
-    public FileRef? File { get; set; }
-
-    [XmlElement("video")]
-    public FileRef? Video { get; set; }
+    public string? File { get; set; }
 
     [XmlElement("alt")]
-    public List<LocalizedText> Alts { get; set; } = [];
+    public AltText? Alt { get; set; }
 
     [XmlElement("caption")]
-    public List<LocalizedText> Captions { get; set; } = [];
+    public Caption? Caption { get; set; }
 }
 
-public class FileRef
+public class Movie : PageContent 
 {
-    [XmlAttribute("src")]
-    public string Src { get; set; } = null!;
+    [XmlElement("todo")]
+    public List<string> Todos { get; set; } = [];
+
+    [XmlElement("file")]
+    public string? File { get; set; }
+
+    [XmlElement("alt")]
+    public AltText? Alt { get; set; }
+
+    [XmlElement("caption")]
+    public Caption? Caption { get; set; }
 }
 
 public class LocalizedBlock

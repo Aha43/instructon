@@ -19,7 +19,7 @@ public static class PageScaffoldFactory
             Value = $"TODO: Add caption in {lang}"
         }).ToList();
 
-        return new PageDocument
+        var retVal = new PageDocument
         {
             Todos = ["Scaffolded page. Complete required fields."],
             Title = new LocalizedBlock
@@ -30,27 +30,48 @@ public static class PageScaffoldFactory
                     Value = "Untitled Page",
                     Todos = ["Set title"]
                 })]
-            },
-            Paragraph = new Paragraph
+            }
+        };
+
+        retVal.Content = [
+            new Paragraph
             {
                 Todos = ["Write introduction paragraph"],
                 Texts = localizedTexts
             },
-            Image = new MediaBlock
+            new Img
             {
                 Todos = ["Add image file", "Write alt/caption"],
-                File = new FileRef { Src = "images/placeholder.jpg" },
-                Alts = localizedTexts,
-                Captions = captions
+                File = "images/placeholder.jpg",
+                Alt = new AltText
+                {
+                    Todos = ["Write alt text"],
+                    Alts = localizedTexts
+                },
+                Caption = new Caption
+                {
+                    Todos = ["Write caption"],
+                    Captions = captions
+                }
             },
-            Video = new MediaBlock
+            new Movie
             {
                 Todos = ["Add video file", "Write alt/caption"],
-                Video = new FileRef { Src = "videos/placeholder.mp4" },
-                Alts = localizedTexts,
-                Captions = captions
+                File = "videos/placeholder.mp4",
+                Alt = new AltText
+                {
+                    Todos = ["Write alt text"],
+                    Alts = localizedTexts
+                },
+                Caption = new Caption
+                {
+                    Todos = ["Write caption"],
+                    Captions = captions
+                }
             }
-        };
+        ];
+
+        return retVal;
     }
 
     
